@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>填充多个矩形</title>
+</head>
+<body>
+  <div id="canvas-warp">
+    <canvas id="canvas" style="border: 1px solid #aaaaaa; display: block; margin: 50px auto;"></canvas>
+  </div>
+
+  <script>
+    window.onload = function() {
+      let canvas = document.getElementById("canvas")
+      canvas.width = 800;
+      canvas.height = 600;
+      let context = canvas.getContext("2d")
+
+      drawRect(context, 150, 50, 50, 50, "red", 2, "blue")
+      drawRect(context, 250, 50, 50, 50, "green", 2, "red")
+      drawRect(context, 350, 50, 50, 50, "yellow", 2, "black")
+  
+      //　用函数封装一下啦
+      function drawRect(cxt, x, y, width, height, fillColor, borderWidth, borderColor) {
+        context.beginPath()
+        context.moveTo(x,y)
+        context.lineTo(x + width, y)
+        context.lineTo(x + width, y + height)
+        context.lineTo(x, y + height)
+        context.closePath()
+
+        context.lineWidth = borderWidth
+        context.fillStyle = fillColor
+        context.strokeStyle = borderColor
+        
+        context.fill()
+        context.stroke()
+      }
+    }
+  </script>
+</body>
+</html>

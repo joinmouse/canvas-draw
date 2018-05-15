@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>填充纹理</title>
+</head>
+<body>
+  <div id="canvas-warp">
+    <canvas id="canvas" style="border: 1px solid #aaaaaa; display: block; margin: 50px auto;">
+    </canvas>
+  </div>
+
+  <script>
+    window.onload = function() {
+      let canvas = document.getElementById("canvas")
+      canvas.width = 800
+      canvas.height = 600
+      let context = canvas.getContext("2d")
+
+      let img = new Image()
+      img.src = 'http://ursb.me/canvas/Canvas/8/8-1.jpg'
+
+      img.onload = function() {
+        let pattern = context.createPattern(img, "repeat")
+        
+        context.fillStyle = pattern;
+        context.fillRect(0,0,800,600);
+      }
+    }
+  </script>
+</body>
+</html>

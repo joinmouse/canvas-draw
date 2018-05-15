@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="canvas-warp">
+    <canvas id="canvas" style="border: 1px solid #aaaaaa; display: block; margin: 50px auto;"></canvas>
+  </div>
+
+  <script>
+    window.onload = function() {
+      let canvas = document.getElementById('canvas')
+      canvas.width = 800;
+      canvas.height = 600;
+      let context = canvas.getContext("2d")
+
+      //开始绘制: 移动画笔(moveTo()), 笔画停点(lineTo())
+      context.moveTo(100,100)
+      context.lineTo(600,600)
+      context.lineWidth = 5
+      //确定绘制只有两种方法，fill()和stroke()，前者是填充的，后者是描边
+      context.strokeStyle = "#AA394C"
+      context.stroke()
+    }
+  </script>
+</body>
+</html>

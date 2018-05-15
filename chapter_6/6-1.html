@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>颜色渐变</title>
+</head>
+<body>
+  <div id="canvas-warp">
+    <canvas id="canvas" style="border: 1px solid #aaaaaa; display: block; margin: 50px auto;">
+    </canvas>
+  </div>
+
+  <script>
+    let canvas = document.getElementById("canvas")
+    canvas.width = 800
+    canvas.height = 600
+    let context = canvas.getContext("2d")
+
+    context.rect(200,100,400,400)
+
+    //1、增加渐变线
+    //@params: xstart, ystart, xend, yend
+    let grd = context.createLinearGradient(200,300,600,300)
+
+    //2、为渐变线添加关键色 @params: (stop,color)
+    grd.addColorStop(0, 'red')
+    grd.addColorStop(0.5,'blue')
+    grd.addColorStop(1, 'green')
+
+    //应用渐变
+    context.fillStyle = grd
+    context.fill()
+  </script>
+</body>
+</html>
